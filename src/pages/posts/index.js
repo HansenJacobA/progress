@@ -12,7 +12,7 @@ export default function Posts() {
       pb={10}
       overflowX="hidden"
     >
-      <Template text="View Posts by Topic" />
+      <Template text="View Posts 📖 by Topic" />
       <Search />
     </Flex>
   );

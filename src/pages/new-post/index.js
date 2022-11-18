@@ -4,14 +4,8 @@ import Template from "../../components/template/template";
 
 export default function NewPost() {
   return (
-    <Flex
-      justify="center"
-      align="center"
-      direction="column"
-      bgColor="white"
-      overflowX="hidden"
-    >
-      <Template text="Create New Entry" />
+    <Flex justify="center" align="center" direction="column" overflowX="hidden">
+      <Template text="Write 📝 New Post" />
       <Form />
     </Flex>
   );

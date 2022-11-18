@@ -5,8 +5,14 @@ import Template from "../../components/template/template";
 
 export default function DeleteAll() {
   return (
-    <Flex justify="center" align="center" direction="column" overflowX="hidden">
-      <Template text="Delete All Posts" />
+    <Flex
+      justify="center"
+      align="center"
+      direction="column"
+      overflowX="hidden"
+      mb={200}
+    >
+      <Template text="Delete 🗑️ Posts" />
       <NextLink href="/home" passHref>
         <Link
           _hover={{
@@ -14,7 +20,7 @@ export default function DeleteAll() {
           }}
         >
           <Button mt="70%" onClick={clearLocalStorage}>
-            Delete
+            Delete All Posts
           </Button>
         </Link>
       </NextLink>

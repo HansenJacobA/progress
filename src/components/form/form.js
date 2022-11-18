@@ -34,7 +34,6 @@ export default function Form() {
   }, [false]);
 
   const sendSubmits = async () => {
-    // Handle new topic by submitting new topic
     if (allTopics.find(({ name }) => name === topic) == undefined) {
       const newTopic = {
         id: nanoid(),
@@ -47,7 +46,6 @@ export default function Form() {
       setItem(ALL_TOPICS, newAllTopics);
     }
 
-    // Submit new entry
     const newEntry = {
       id: nanoid(),
       createdAt: new Date().toLocaleString(),

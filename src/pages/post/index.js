@@ -9,7 +9,7 @@ export default function ViewPost() {
   const post = selectedPost ? JSON.parse(selectedPost) : {};
   return (
     <Flex justify="center" align="center" direction="column" overflowX="hidden">
-      <Template text="Work Progress Tracker" />
+      <Template text="Work Pr☕️gress Tracker" />
       {selectedPost ? <Post post={post} /> : <>No Selected Post</>}
     </Flex>
   );

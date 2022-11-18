@@ -4,7 +4,7 @@ import NextLink from "next/link";
 export default function Nav() {
   return (
     <Flex
-      w={450}
+      w="100vw"
       align="center"
       fontSize={18}
       justify="center"

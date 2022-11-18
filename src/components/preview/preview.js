@@ -21,12 +21,10 @@ export default function Preview({ post }) {
           direction="column"
           overflowY="scroll"
           overflowX="hidden"
-          borderRadius={5}
+          borderRadius={10}
           height={150}
           minW={350}
           maxW={400}
-          bgColor="#2C5159"
-          color="white"
           _hover={{
             bgColor: "#819FA6",
           }}
