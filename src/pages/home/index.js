@@ -7,8 +7,8 @@ export default function Home() {
     <Flex justify="center" align="center" direction="column" overflowX="hidden">
       <Template />
       <Flex justify="center" align="center" direction="column" gap={10} m={100}>
-        <Text fontSize="4xl">Welcome</Text>
-        <NextLink href="/search-posts" passHref>
+        <Text fontSize="4xl">Welcome 👋</Text>
+        <NextLink href="/search-topics" passHref>
           <Link
             _hover={{
               textDecoration: "none",

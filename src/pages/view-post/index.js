@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/react";
 import ViewPost from "../../components/viewPost";
 import Template from "../../components/template";
 
-export default function ViewPost() {
+export default function Post() {
   const router = useRouter();
   const { selectedPost } = router.query;
   const post = selectedPost ? JSON.parse(selectedPost) : {};

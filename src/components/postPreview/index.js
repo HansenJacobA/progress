@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
-import IndividualPost from "../individualPost";
+import ViewPost from "../viewPost";
 
 export default function PostPreview({ post }) {
   return (
@@ -29,7 +29,7 @@ export default function PostPreview({ post }) {
             bgColor: "#819FA6",
           }}
         >
-          <IndividualPost post={post} />
+          <ViewPost post={post} />
         </Flex>
       </Link>
     </NextLink>

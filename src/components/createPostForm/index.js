@@ -8,6 +8,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Text,
 } from "@chakra-ui/react";
 import {
   ALL_TOPICS_KEY,
@@ -74,6 +75,9 @@ export default function CreatePostForm() {
       width={450}
       overflowX="hidden"
     >
+      <Text fontSize={20} fontWeight="bold" m={5}>
+        Create a new post 📝
+      </Text>
       <FormLabel mt={5} textAlign="center">
         Topic
       </FormLabel>

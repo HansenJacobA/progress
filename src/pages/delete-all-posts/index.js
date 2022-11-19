@@ -7,7 +7,7 @@ export default function DeleteAllPosts() {
   return (
     <Flex justify="center" align="center" direction="column" overflowX="hidden">
       <Template />
-      <Text fontSize={24} marginTop={150} marginBottom={10}>
+      <Text fontSize={24} marginTop={125} marginBottom={10} fontWeight="bold">
         Delete All Posts?
       </Text>
       <NextLink href="/home" passHref>

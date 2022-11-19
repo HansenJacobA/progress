@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
-import Template from "../../components/template/template";
+import Template from "../../components/template";
 import SearchTopics from "../../components/searchTopics";
 
-export default function SearchTopics() {
+export default function Search() {
   return (
     <Flex
       justify="center"

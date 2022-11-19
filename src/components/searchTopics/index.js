@@ -3,7 +3,7 @@ import PostPreview from "../postPreview";
 import { Flex, Button, Input, Text } from "@chakra-ui/react";
 import {
   ALL_TOPICS_KEY,
-  ALL_TOPICS_KEY,
+  ALL_POSTS_KEY,
   getLocalStorageKeyValue,
 } from "../../utilities/localStorage";
 
@@ -20,7 +20,7 @@ export default function SearchTopics() {
   const getPosts = async (e) => {
     e.preventDefault();
     if (allTopics.find(({ name }) => name === selectedTopic) !== undefined) {
-      const localPosts = getLocalStorageKeyValue(ALL_TOPICS_KEY);
+      const localPosts = getLocalStorageKeyValue(ALL_POSTS_KEY);
       const topicPosts = localPosts.filter(
         (post) => post.topic === selectedTopic
       );
@@ -37,6 +37,9 @@ export default function SearchTopics() {
       mt={10}
       overflowX="hidden"
     >
+      <Text fontSize={20} fontWeight="bold">
+        Browse Posts by Topic 📖
+      </Text>
       <Flex gap={5}>
         <Input
           type="text"
