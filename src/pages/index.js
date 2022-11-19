@@ -15,6 +15,12 @@ export default function Index() {
       <link rel="manifest" href="app.webmanifest" />
       <meta name="theme-color" media="" />
       <script src="sw-register.js" async></script>
+
+      {/* To prevent iphone zooming in on text input fields */}
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+      />
     </Head>
   );
 }
