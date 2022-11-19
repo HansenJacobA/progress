@@ -1,14 +1,14 @@
 import NextLink from "next/link";
 import { Link, Button, Flex, Text } from "@chakra-ui/react";
-import Template from "../../components/template/template";
+import Template from "../../components/template";
 
 export default function Home() {
   return (
     <Flex justify="center" align="center" direction="column" overflowX="hidden">
-      <Template text="Pr☕️gress Tracker" />
+      <Template />
       <Flex justify="center" align="center" direction="column" gap={10} m={100}>
         <Text fontSize="4xl">Welcome</Text>
-        <NextLink href="/posts" passHref>
+        <NextLink href="/search-posts" passHref>
           <Link
             _hover={{
               textDecoration: "none",
@@ -17,7 +17,7 @@ export default function Home() {
             <Button>Search Posts</Button>
           </Link>
         </NextLink>
-        <NextLink href="/new-post" passHref>
+        <NextLink href="/create-new-post" passHref>
           <Link
             _hover={{
               textDecoration: "none",

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
-import Post from "../post/post";
+import IndividualPost from "../individualPost";
 
-export default function Preview({ post }) {
+export default function PostPreview({ post }) {
   return (
     <NextLink
       href={{
@@ -29,7 +29,7 @@ export default function Preview({ post }) {
             bgColor: "#819FA6",
           }}
         >
-          <Post post={post} />
+          <IndividualPost post={post} />
         </Flex>
       </Link>
     </NextLink>

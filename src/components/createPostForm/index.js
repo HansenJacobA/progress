@@ -10,13 +10,13 @@ import {
   Input,
 } from "@chakra-ui/react";
 import {
-  ALL_TOPICS,
-  ALL_POSTS,
-  getItem,
-  setItem,
-} from "../utilities/utilities";
+  ALL_TOPICS_KEY,
+  ALL_POSTS_KEY,
+  getLocalStorageKeyValue,
+  setLocalStorageKeyValue,
+} from "../../utilities/localStorage";
 
-export default function Form() {
+export default function CreatePostForm() {
   const [topic, setTopic] = useState("");
   const [yesterday, setYesterday] = useState("");
   const [today, setToday] = useState("");
@@ -25,11 +25,11 @@ export default function Form() {
   const [allTopics, setAllTopics] = useState([]);
 
   useEffect(() => {
-    const localTopics = getItem(ALL_TOPICS);
+    const localTopics = getLocalStorageKeyValue(ALL_TOPICS_KEY);
     if (localTopics) {
       setAllTopics(localTopics);
     } else {
-      setItem(ALL_TOPICS, allTopics);
+      setLocalStorageKeyValue(ALL_TOPICS_KEY, allTopics);
     }
   }, [false]);
 
@@ -43,7 +43,7 @@ export default function Form() {
         completedAt: null,
       };
       const newAllTopics = [...allTopics, newTopic];
-      setItem(ALL_TOPICS, newAllTopics);
+      setLocalStorageKeyValue(ALL_TOPICS_KEY, newAllTopics);
     }
 
     const newEntry = {
@@ -56,12 +56,12 @@ export default function Form() {
       blockers,
     };
 
-    const localEntries = getItem(ALL_POSTS);
+    const localEntries = getLocalStorageKeyValue(ALL_POSTS_KEY);
 
     if (localEntries) {
-      setItem(ALL_POSTS, [...localEntries, newEntry]);
+      setLocalStorageKeyValue(ALL_POSTS_KEY, [...localEntries, newEntry]);
     } else {
-      setItem(ALL_POSTS, [newEntry]);
+      setLocalStorageKeyValue(ALL_POSTS_KEY, [newEntry]);
     }
   };
 

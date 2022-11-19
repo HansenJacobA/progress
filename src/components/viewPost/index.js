@@ -1,6 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 
-export default function Post({ post }) {
+export default function ViewPost({ post }) {
   return (
     <Flex
       align="center"

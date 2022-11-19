@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
-import Title from "../title/title";
-import Nav from "../nav/nav";
+import Title from "../title";
+import NavBar from "../navBar";
 
-export default function Template({ text }) {
+export default function Template() {
   return (
     <Flex
       justify="center"
@@ -12,8 +12,8 @@ export default function Template({ text }) {
       color="#fff"
       overflowX="hidden"
     >
-      <Title text={text} />
-      <Nav />
+      <Title />
+      <NavBar />
     </Flex>
   );
 }

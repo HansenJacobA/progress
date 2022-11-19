@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Flex } from "@chakra-ui/react";
-import Post from "../../components/post/post";
-import Template from "../../components/template/template";
+import ViewPost from "../../components/viewPost";
+import Template from "../../components/template";
 
 export default function ViewPost() {
   const router = useRouter();
@@ -9,8 +9,8 @@ export default function ViewPost() {
   const post = selectedPost ? JSON.parse(selectedPost) : {};
   return (
     <Flex justify="center" align="center" direction="column" overflowX="hidden">
-      <Template text="Work Pr☕️gress Tracker" />
-      {selectedPost ? <Post post={post} /> : <>No Selected Post</>}
+      <Template />
+      {selectedPost ? <ViewPost post={post} /> : <>No Selected Post</>}
     </Flex>
   );
 }

@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from "react";
-import Preview from "../preview/preview";
+import PostPreview from "../postPreview";
 import { Flex, Button, Input, Text } from "@chakra-ui/react";
-import { ALL_TOPICS, ALL_POSTS, getItem } from "../utilities/utilities";
+import {
+  ALL_TOPICS_KEY,
+  ALL_TOPICS_KEY,
+  getLocalStorageKeyValue,
+} from "../../utilities/localStorage";
 
-export default function Search() {
+export default function SearchTopics() {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [posts, setPosts] = useState([]);
   const [allTopics, setAllTopics] = useState([]);
 
   useEffect(() => {
-    const localTopics = getItem(ALL_TOPICS);
+    const localTopics = getLocalStorageKeyValue(ALL_TOPICS_KEY);
     setAllTopics(localTopics || allTopics);
   }, [false]);
 
   const getPosts = async (e) => {
     e.preventDefault();
     if (allTopics.find(({ name }) => name === selectedTopic) !== undefined) {
-      const localPosts = getItem(ALL_POSTS);
+      const localPosts = getLocalStorageKeyValue(ALL_TOPICS_KEY);
       const topicPosts = localPosts.filter(
         (post) => post.topic === selectedTopic
       );
@@ -52,7 +56,7 @@ export default function Search() {
 
       <Flex overflowY="scroll" direction="column" gap={10} h={350}>
         {posts.length ? (
-          posts.map((post) => <Preview post={post} key={post.id} />)
+          posts.map((post) => <PostPreview post={post} key={post.id} />)
         ) : (
           <Text>No previews for this topic</Text>
         )}

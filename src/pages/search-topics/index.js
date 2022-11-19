@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import Template from "../../components/template/template";
-import Search from "../../components/search/search";
+import SearchTopics from "../../components/searchTopics";
 
-export default function Posts() {
+export default function SearchTopics() {
   return (
     <Flex
       justify="center"
@@ -11,9 +11,10 @@ export default function Posts() {
       bgColor="white"
       pb={10}
       overflowX="hidden"
+      overflowY="hidden"
     >
-      <Template text="View Posts 📖 by Topic" />
-      <Search />
+      <Template />
+      <SearchTopics />
     </Flex>
   );
 }

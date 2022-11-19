@@ -1,19 +1,19 @@
 import { Flex, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-export default function Nav() {
+export default function NavBar() {
   return (
     <Flex
       w="100vw"
       align="center"
-      fontSize={18}
+      fontSize={16}
       justify="center"
       gap={50}
-      p={5}
+      p={3}
       bgColor="#D17E13"
       overflowX="hidden"
     >
-      <NextLink href="/delete" passHref>
+      <NextLink href="/delete-all-posts" passHref>
         <Link
           textDecoration="none"
           _hover={{
@@ -23,7 +23,7 @@ export default function Nav() {
           Delete All
         </Link>
       </NextLink>
-      <NextLink href="/new-post" passHref>
+      <NextLink href="/create-new-post" passHref>
         <Link
           textDecoration="none"
           _hover={{
@@ -33,7 +33,7 @@ export default function Nav() {
           New Post
         </Link>
       </NextLink>
-      <NextLink href="/posts" passHref>
+      <NextLink href="/search-topics" passHref>
         <Link
           textDecoration="none"
           _hover={{

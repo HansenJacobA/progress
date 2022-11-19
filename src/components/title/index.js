@@ -2,7 +2,7 @@ import NextLink from "next/link";
 import { Link } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 
-export default function Title({ text }) {
+export default function Title() {
   return (
     <NextLink href="/home" passHref>
       <Link
@@ -15,10 +15,10 @@ export default function Title({ text }) {
           size="xl"
           noOfLines={1}
           textAlign="center"
-          m={10}
+          m={5}
           overflowX="hidden"
         >
-          {text}
+          Pr☕️gress Tracker
         </Heading>
       </Link>
     </NextLink>
