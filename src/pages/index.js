@@ -14,7 +14,7 @@ export default function Index() {
       />
       <link rel="manifest" href="app.webmanifest" />
       <meta name="theme-color" media="" />
-      <script src="sw-register.js" async></script>
+      <script src="./sw-register.js" async></script>
     </Head>
   );
 }
