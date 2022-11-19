@@ -72,7 +72,8 @@ export default function CreatePostForm() {
       justifyContent="center"
       textAlign="center"
       p={5}
-      width={450}
+      width="100%"
+      maxW={450}
       overflowX="hidden"
     >
       <Text fontSize={20} fontWeight="bold" m={5}>
@@ -102,6 +103,7 @@ export default function CreatePostForm() {
         onChange={(e) => setYesterday(e.target.value)}
         placeholder=". . ."
         size="sm"
+        borderRadius={5}
       />
 
       <FormLabel mt={5} textAlign="center">
@@ -111,6 +113,7 @@ export default function CreatePostForm() {
         onChange={(e) => setToday(e.target.value)}
         placeholder=". . ."
         size="sm"
+        borderRadius={5}
       />
 
       <FormLabel mt={5} textAlign="center">
@@ -120,6 +123,7 @@ export default function CreatePostForm() {
         onChange={(e) => setContinued(e.target.value)}
         placeholder=". . ."
         size="sm"
+        borderRadius={5}
       />
 
       <FormLabel mt={5} textAlign="center">
@@ -129,6 +133,7 @@ export default function CreatePostForm() {
         onChange={(e) => setBlockers(e.target.value)}
         placeholder=". . ."
         size="sm"
+        borderRadius={5}
       />
 
       <NextLink href="/home" passHref>
