@@ -8,6 +8,6 @@ export const setLocalStorageKeyValue = (key, value) =>
   localStorage.setItem(key, JSON.stringify(value));
 
 export const deleteAllPosts = () => {
-  localStorage.removeItem(ALL_TOPICS);
-  localStorage.removeItem(ALL_POSTS);
+  localStorage.removeItem(ALL_TOPICS_KEY);
+  localStorage.removeItem(ALL_POSTS_KEY);
 };
