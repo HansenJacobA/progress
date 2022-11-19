@@ -8,7 +8,7 @@ export default function Post() {
   const { selectedPost } = router.query;
   const post = selectedPost ? JSON.parse(selectedPost) : {};
   return (
-    <Flex justify="center" align="center" direction="column" overflowX="hidden">
+    <Flex justify="center" align="center" direction="column">
       <Template />
       {selectedPost ? <ViewPost post={post} /> : <>No Selected Post</>}
     </Flex>

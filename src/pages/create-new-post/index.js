@@ -4,7 +4,7 @@ import Template from "../../components/template";
 
 export default function CreateNewPost() {
   return (
-    <Flex justify="center" align="center" direction="column" overflowX="hidden">
+    <Flex justify="center" align="center" direction="column">
       <Template />
       <CreatePostForm />
     </Flex>

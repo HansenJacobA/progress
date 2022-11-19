@@ -20,7 +20,6 @@ export default function PostPreview({ post }) {
           align="center"
           direction="column"
           overflowY="scroll"
-          overflowX="hidden"
           borderRadius={10}
           height={150}
           minW={350}

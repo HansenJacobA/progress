@@ -10,7 +10,6 @@ export default function Template() {
       direction="column"
       bgColor="#2C5159"
       color="#fff"
-      overflowX="hidden"
     >
       <Title />
       <NavBar />

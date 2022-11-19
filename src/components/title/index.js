@@ -10,14 +10,7 @@ export default function Title() {
           textDecoration: "none",
         }}
       >
-        <Heading
-          as="h1"
-          size="xl"
-          noOfLines={1}
-          textAlign="center"
-          m={5}
-          overflowX="hidden"
-        >
+        <Heading as="h1" size="xl" noOfLines={1} textAlign="center" m={5}>
           Pr☕️gress Tracker
         </Heading>
       </Link>

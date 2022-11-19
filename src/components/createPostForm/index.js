@@ -74,7 +74,6 @@ export default function CreatePostForm() {
       p={5}
       width="100%"
       maxW={450}
-      overflowX="hidden"
     >
       <Text fontSize={20} fontWeight="bold" m={5}>
         Create a new post 📝

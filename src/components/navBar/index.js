@@ -11,7 +11,6 @@ export default function NavBar() {
       gap={50}
       p={3}
       bgColor="#D17E13"
-      overflowX="hidden"
     >
       <NextLink href="/delete-all-posts" passHref>
         <Link

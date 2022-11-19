@@ -29,14 +29,7 @@ export default function SearchTopics() {
   };
 
   return (
-    <Flex
-      justify="center"
-      align="center"
-      direction="column"
-      gap={10}
-      mt={10}
-      overflowX="hidden"
-    >
+    <Flex justify="center" align="center" direction="column" gap={10} mt={10}>
       <Text fontSize={20} fontWeight="bold">
         Browse Posts by Topic 📖
       </Text>

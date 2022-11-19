@@ -4,7 +4,7 @@ import Template from "../../components/template";
 
 export default function Home() {
   return (
-    <Flex justify="center" align="center" direction="column" overflowX="hidden">
+    <Flex justify="center" align="center" direction="column">
       <Template />
       <Flex justify="center" align="center" direction="column" gap={10} m={100}>
         <Text fontSize={34}>Welcome 👋</Text>

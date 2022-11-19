@@ -10,8 +10,6 @@ export default function Search() {
       direction="column"
       bgColor="white"
       pb={10}
-      overflowX="hidden"
-      overflowY="hidden"
     >
       <Template />
       <SearchTopics />

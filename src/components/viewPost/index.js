@@ -8,7 +8,6 @@ export default function ViewPost({ post }) {
       p={10}
       w="100vw"
       gap={3}
-      overflowX="hidden"
       bgColor="#2C5159"
       color="white"
     >

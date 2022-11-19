@@ -5,7 +5,7 @@ import Template from "../../components/template";
 
 export default function DeleteAllPosts() {
   return (
-    <Flex justify="center" align="center" direction="column" overflowX="hidden">
+    <Flex justify="center" align="center" direction="column">
       <Template />
       <Text fontSize={24} marginTop={125} marginBottom={10} fontWeight="bold">
         Delete All Posts?
