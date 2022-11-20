@@ -3,18 +3,20 @@ import { Flex, Text } from "@chakra-ui/react";
 export default function ViewPost({ post }) {
   return (
     <Flex
+      h="100vh"
+      w="100vw"
       align="center"
       direction="column"
       p={10}
-      w="100vw"
       gap={3}
-      bgColor="#2C5159"
+      bgColor="#272D33"
       color="white"
     >
       <Text
         fontWeight="bold"
         w="100vw"
-        bgColor="#819FA6"
+        bgColor="#E6DDCB"
+        color="black"
         textAlign="center"
         p={2}
       >
@@ -24,7 +26,8 @@ export default function ViewPost({ post }) {
       <Text
         fontWeight="bold"
         w="100vw"
-        bgColor="#819FA6"
+        bgColor="#E6DDCB"
+        color="black"
         textAlign="center"
         p={2}
       >
@@ -34,7 +37,8 @@ export default function ViewPost({ post }) {
       <Text
         fontWeight="bold"
         w="100vw"
-        bgColor="#819FA6"
+        bgColor="#E6DDCB"
+        color="black"
         textAlign="center"
         p={2}
       >
@@ -44,7 +48,8 @@ export default function ViewPost({ post }) {
       <Text
         fontWeight="bold"
         w="100vw"
-        bgColor="#819FA6"
+        bgColor="#E6DDCB"
+        color="black"
         textAlign="center"
         p={2}
       >
@@ -54,7 +59,8 @@ export default function ViewPost({ post }) {
       <Text
         fontWeight="bold"
         w="100vw"
-        bgColor="#819FA6"
+        bgColor="#E6DDCB"
+        color="black"
         textAlign="center"
         p={2}
       >
@@ -64,7 +70,8 @@ export default function ViewPost({ post }) {
       <Text
         fontWeight="bold"
         w="100vw"
-        bgColor="#819FA6"
+        bgColor="#E6DDCB"
+        color="black"
         textAlign="center"
         p={2}
       >
