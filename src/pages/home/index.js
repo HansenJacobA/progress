@@ -6,8 +6,10 @@ export default function Home() {
   return (
     <Flex justify="center" align="center" direction="column">
       <Template />
+
       <Flex justify="center" align="center" direction="column" gap={10} m={100}>
         <Text fontSize={32}>Welcome 👋</Text>
+
         <NextLink href="/search-topics" passHref>
           <Link
             _hover={{
@@ -17,6 +19,7 @@ export default function Home() {
             <Button>Search Posts</Button>
           </Link>
         </NextLink>
+
         <NextLink href="/create-new-post" passHref>
           <Link
             _hover={{
