@@ -2,82 +2,85 @@ import { Flex, Text } from "@chakra-ui/react";
 
 export default function ViewPost({ post }) {
   return (
-    <Flex
-      h="100vh"
-      w="100vw"
-      align="center"
-      direction="column"
-      p={10}
-      gap={3}
-      bgColor="#272D33"
-      color="white"
-    >
+    <Flex w="100%" direction="column" gap={3} bgColor="#E6DDCB">
       <Text
         fontWeight="bold"
-        w="100vw"
-        bgColor="#E6DDCB"
-        color="black"
+        w="100%"
+        bgColor="#272D33"
+        color="white"
         textAlign="center"
         p={2}
       >
         - Topic -
       </Text>
-      <Text>{post.topic}</Text>
+      <Text w="100%" textAlign="center">
+        {post.topic}
+      </Text>
       <Text
         fontWeight="bold"
-        w="100vw"
-        bgColor="#E6DDCB"
-        color="black"
+        w="100%"
+        bgColor="#272D33"
+        color="white"
         textAlign="center"
         p={2}
       >
         - Created -
       </Text>
-      <Text>{post.createdAt}</Text>
+      <Text w="100%" textAlign="center">
+        {post.createdAt}
+      </Text>
       <Text
         fontWeight="bold"
-        w="100vw"
-        bgColor="#E6DDCB"
-        color="black"
+        w="100%"
+        bgColor="#272D33"
+        color="white"
         textAlign="center"
         p={2}
       >
         - Prior Work -
       </Text>
-      <Text>{post.yesterday}</Text>
+      <Text w="100%" textAlign="center">
+        {post.yesterday}
+      </Text>
       <Text
         fontWeight="bold"
-        w="100vw"
-        bgColor="#E6DDCB"
-        color="black"
+        w="100%"
+        bgColor="#272D33"
+        color="white"
         textAlign="center"
         p={2}
       >
         - Current Work -
       </Text>
-      <Text>{post.today}</Text>
+      <Text w="100%" textAlign="center">
+        {post.today}
+      </Text>
       <Text
         fontWeight="bold"
-        w="100vw"
-        bgColor="#E6DDCB"
-        color="black"
+        w="100%"
+        bgColor="#272D33"
+        color="white"
         textAlign="center"
         p={2}
       >
         - Continued Work -
       </Text>
-      <Text>{post.continued}</Text>
+      <Text w="100%" textAlign="center">
+        {post.continued}
+      </Text>
       <Text
         fontWeight="bold"
-        w="100vw"
-        bgColor="#E6DDCB"
-        color="black"
+        w="100%"
+        bgColor="#272D33"
+        color="white"
         textAlign="center"
         p={2}
       >
         - Blockers -
       </Text>
-      <Text>{post.blockers}</Text>
+      <Text w="100%" textAlign="center">
+        {post.blockers}
+      </Text>
     </Flex>
   );
 }

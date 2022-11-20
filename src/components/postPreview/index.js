@@ -22,10 +22,9 @@ export default function PostPreview({ post }) {
           overflowY="scroll"
           borderRadius={10}
           height={150}
-          minW={350}
           maxW={400}
           _hover={{
-            bgColor: "#819FA6",
+            textDecoration: "underline",
           }}
         >
           <ViewPost post={post} />

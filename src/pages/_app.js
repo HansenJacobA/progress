@@ -5,7 +5,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 function App({ Component, pageProps }) {
   return (
     <ChakraProvider>
-      <Script src="/sw-register.js" />
+      {/* <Script src="/sw-register.js" /> */}
       <Component {...pageProps} />
     </ChakraProvider>
   );
