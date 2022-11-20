@@ -10,7 +10,7 @@ export default function Title() {
           textDecoration: "none",
         }}
       >
-        <Heading as="h1" size="xl" noOfLines={1} textAlign="center" m={5}>
+        <Heading as="h1" size="xl" noOfLines={1} textAlign="center" m={8}>
           Pr☕️gress Tracker
         </Heading>
       </Link>

@@ -10,7 +10,8 @@ export default function NavBar() {
       justify="center"
       gap={50}
       p={3}
-      bgColor="#D17E13"
+      bgColor="#E6DDCB"
+      color="black"
     >
       <NextLink href="/delete-all-posts" passHref>
         <Link

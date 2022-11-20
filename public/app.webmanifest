@@ -2,7 +2,7 @@
   "name": "Work Progress Tracker",
   "short_name": "Progress",
   "start_url": "./",
-  "theme_color": "#2C5159",
+  "theme_color": "#E6DDCB",
   "scope": "./",
   "display": "standalone",
   "icons": [

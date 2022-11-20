@@ -9,8 +9,8 @@ export default function Template() {
       justify="center"
       align="center"
       direction="column"
-      bgColor="#2C5159"
-      color="#fff"
+      bgColor="#272D33"
+      color="white"
     >
       <Head>
         <title>Pr☕️gress Tracker</title>
