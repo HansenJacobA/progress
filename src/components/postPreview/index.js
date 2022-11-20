@@ -7,7 +7,7 @@ export default function PostPreview({ post }) {
   return (
     <NextLink
       href={{
-        pathname: "/post",
+        pathname: "/view-post",
         query: { selectedPost: JSON.stringify(post) },
       }}
     >
