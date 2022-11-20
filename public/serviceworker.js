@@ -1,4 +1,4 @@
-const assets = ["./", "sw-register.js"];
+const assets = ["./", "../"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
