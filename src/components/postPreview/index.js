@@ -22,10 +22,11 @@ export default function PostPreview({ post }) {
           overflowY="scroll"
           borderRadius={10}
           height={150}
-          maxW={400}
+          w={350}
           _hover={{
             textDecoration: "underline",
           }}
+          border="solid 4px #E6DDCB"
         >
           <ViewPost post={post} />
         </Flex>

@@ -50,7 +50,16 @@ export default function SearchTopics() {
         <Button onClick={getPosts}>Search</Button>
       </Flex>
 
-      <Flex overflowY="scroll" direction="column" gap={10} h={350} w="90%">
+      <Flex
+        overflowY="scroll"
+        direction="column"
+        gap={10}
+        h={350}
+        align="center"
+        pl={15}
+        pr={15}
+        maxW={350}
+      >
         {posts.length ? (
           posts.map((post) => <PostPreview post={post} key={post.id} />)
         ) : (

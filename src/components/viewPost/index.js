@@ -1,86 +1,27 @@
 import { Flex, Text } from "@chakra-ui/react";
+import PostRowTitle from "./postRowTitle";
+import PostRowDetails from "./postRowDetails";
 
 export default function ViewPost({ post }) {
   return (
-    <Flex w="100%" direction="column" gap={3} bgColor="#E6DDCB">
-      <Text
-        fontWeight="bold"
-        w="100%"
-        bgColor="#272D33"
-        color="white"
-        textAlign="center"
-        p={2}
-      >
-        - Topic -
-      </Text>
-      <Text w="100%" textAlign="center">
-        {post.topic}
-      </Text>
-      <Text
-        fontWeight="bold"
-        w="100%"
-        bgColor="#272D33"
-        color="white"
-        textAlign="center"
-        p={2}
-      >
-        - Created -
-      </Text>
-      <Text w="100%" textAlign="center">
-        {post.createdAt}
-      </Text>
-      <Text
-        fontWeight="bold"
-        w="100%"
-        bgColor="#272D33"
-        color="white"
-        textAlign="center"
-        p={2}
-      >
-        - Prior Work -
-      </Text>
-      <Text w="100%" textAlign="center">
-        {post.yesterday}
-      </Text>
-      <Text
-        fontWeight="bold"
-        w="100%"
-        bgColor="#272D33"
-        color="white"
-        textAlign="center"
-        p={2}
-      >
-        - Current Work -
-      </Text>
-      <Text w="100%" textAlign="center">
-        {post.today}
-      </Text>
-      <Text
-        fontWeight="bold"
-        w="100%"
-        bgColor="#272D33"
-        color="white"
-        textAlign="center"
-        p={2}
-      >
-        - Continued Work -
-      </Text>
-      <Text w="100%" textAlign="center">
-        {post.continued}
-      </Text>
-      <Text
-        fontWeight="bold"
-        w="100%"
-        bgColor="#272D33"
-        color="white"
-        textAlign="center"
-        p={2}
-      >
-        - Blockers -
-      </Text>
-      <Text w="100%" textAlign="center">
-        {post.blockers}
-      </Text>
+    <Flex w="100%" direction="column" justify="center">
+      <PostRowTitle title="Topic" />
+      <PostRowDetails details={post.topic} />
+
+      <PostRowTitle title="Created" />
+      <PostRowDetails details={post.createdAt} />
+
+      <PostRowTitle title="Prior Work" />
+      <PostRowDetails details={post.yesterday} />
+
+      <PostRowTitle title="Current Work" />
+      <PostRowDetails details={post.today} />
+
+      <PostRowTitle title="Continued Work" />
+      <PostRowDetails details={post.continued} />
+
+      <PostRowTitle title="Blockers" />
+      <PostRowDetails details={post.blockers} />
     </Flex>
   );
 }
