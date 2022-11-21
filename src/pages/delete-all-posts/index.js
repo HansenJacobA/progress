@@ -28,9 +28,7 @@ export default function DeleteAllPosts() {
             textDecoration: "none",
           }}
         >
-          <Button onClick={deleteAllPosts} mt={10}>
-            Go Back 😳
-          </Button>
+          <Button mt={10}>Go Back 😳</Button>
         </Link>
       </NextLink>
     </Flex>
