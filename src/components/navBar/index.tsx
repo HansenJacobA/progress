@@ -8,7 +8,7 @@ export default function NavBar() {
       align="center"
       fontSize={16}
       justify="center"
-      gap={50}
+      gap={10}
       p={3}
       bgColor="#E6DDCB"
       color="black"
@@ -20,7 +20,7 @@ export default function NavBar() {
             textDecoration: "underline",
           }}
         >
-          Delete All
+          Remove Items
         </Link>
       </NextLink>
       <NextLink href="/new-post" passHref>

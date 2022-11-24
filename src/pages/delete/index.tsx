@@ -1,36 +1,13 @@
 import NextLink from "next/link";
-import { Link, Button, Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Template from "../../components/template";
-import seedDown from "../../utilities/seedDown";
+import DeleteContent from "../../components/deleteContent";
 
-export default function DeleteAllPosts() {
+export default function Delete() {
   return (
     <Flex justify="center" align="center" direction="column">
       <Template />
-
-      <Text fontSize={24} marginTop={125} marginBottom={10} fontWeight="bold">
-        Delete All Posts?
-      </Text>
-
-      <NextLink href="/home" passHref>
-        <Link
-          _hover={{
-            textDecoration: "none",
-          }}
-        >
-          <Button onClick={seedDown}>Delete All 🗑️</Button>
-        </Link>
-      </NextLink>
-
-      <NextLink href="/home" passHref>
-        <Link
-          _hover={{
-            textDecoration: "none",
-          }}
-        >
-          <Button mt={10}>Go Back 😳</Button>
-        </Link>
-      </NextLink>
+      <DeleteContent />
     </Flex>
   );
 }

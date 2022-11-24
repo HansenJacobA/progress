@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";
-import { Flex, Button, Input, Text } from "@chakra-ui/react";
+import { Flex, Input, Text } from "@chakra-ui/react";
 import getValueByKey from "../../utilities/getValueByKey";
 
 export default function SearchTopic() {
@@ -35,7 +35,7 @@ export default function SearchTopic() {
         Browse Posts by Topic 📖
       </Text>
 
-      <Flex gap={5}>
+      <Flex>
         <Input
           type="text"
           onChange={(e) => setSelectedTopic(e.target.value)}
@@ -47,6 +47,7 @@ export default function SearchTopic() {
 
       <Flex
         overflowY="scroll"
+        overflowX="hidden"
         direction="column"
         gap={10}
         h={350}
@@ -56,7 +57,9 @@ export default function SearchTopic() {
         maxW={350}
       >
         {posts.length ? (
-          posts.map((post) => <PostPreview post={post} key={post.id} />)
+          posts.map((post) => (
+            <PostPreview post={post} key={post.id} checkbox={false} />
+          ))
         ) : (
           <Text>No previews for this topic</Text>
         )}

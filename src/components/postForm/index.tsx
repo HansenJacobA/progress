@@ -8,6 +8,7 @@ import {
   FormLabel,
   Input,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import getValueByKey from "../../utilities/getValueByKey";
 import upsertTopic from "../../utilities/upsertTopic";
@@ -27,6 +28,8 @@ export default function PostForm() {
     setTopics(storedTopics);
   }, []);
 
+  const toast = useToast();
+
   function sendSubmits() {
     const topicId = upsertTopic({ name: topicName });
     createPost({
@@ -36,6 +39,14 @@ export default function PostForm() {
       today,
       continued,
       blockers,
+    });
+
+    toast({
+      title: "Post Created",
+      description: `We shelved your post next to the topic: ${topicName}`,
+      status: "success",
+      duration: 9000,
+      isClosable: true,
     });
   }
 

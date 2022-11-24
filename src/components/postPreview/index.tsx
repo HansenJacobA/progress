@@ -3,7 +3,7 @@ import { Link, Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Post from "../post";
 
-export default function PostPreview({ post }) {
+export default function PostPreview({ post, checkbox }) {
   return (
     <NextLink
       href={{
@@ -25,9 +25,9 @@ export default function PostPreview({ post }) {
           overflowY="scroll"
           borderRadius={10}
           height={150}
-          w={350}
+          w={checkbox ? 300 : 350}
           _hover={{
-            textDecoration: "underline",
+            border: "solid 4px #819FA6",
           }}
           border="solid 4px #E6DDCB"
         >

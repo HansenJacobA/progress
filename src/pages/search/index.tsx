@@ -4,13 +4,7 @@ import SearchTopic from "../../components/searchTopic";
 
 export default function Search() {
   return (
-    <Flex
-      justify="center"
-      align="center"
-      direction="column"
-      bgColor="white"
-      pb={10}
-    >
+    <Flex justify="center" align="center" direction="column">
       <Template />
       <SearchTopic />
     </Flex>
