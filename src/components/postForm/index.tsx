@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import NextLink from "next/link";
-import { nanoid } from "nanoid";
 import {
   Link,
   Textarea,
@@ -10,62 +9,35 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import {
-  ALL_TOPICS_KEY,
-  ALL_POSTS_KEY,
-  getLocalStorageKeyValue,
-  setLocalStorageKeyValue,
-} from "../../utilities/localStorage";
+import getValueByKey from "../../utilities/getValueByKey";
+import upsertTopic from "../../utilities/upsertTopic";
+import createPost from "../../utilities/createPost";
 import SelectTopic from "../selectTopic";
 
 export default function PostForm() {
-  const [topic, setTopic] = useState("");
+  const [topicName, setTopicName] = useState("");
   const [yesterday, setYesterday] = useState("");
   const [today, setToday] = useState("");
   const [continued, setContinued] = useState("");
   const [blockers, setBlockers] = useState("");
-  const [allTopics, setAllTopics] = useState([]);
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    const localTopics = getLocalStorageKeyValue(ALL_TOPICS_KEY);
-    if (localTopics) {
-      setAllTopics(localTopics);
-    } else {
-      setLocalStorageKeyValue(ALL_TOPICS_KEY, allTopics);
-    }
-  }, [false]);
+    const storedTopics = Object.values(getValueByKey("topics"));
+    setTopics(storedTopics);
+  }, []);
 
-  const sendSubmits = async () => {
-    if (allTopics.find(({ name }) => name === topic) == undefined) {
-      const newTopic = {
-        id: nanoid(),
-        createdAt: new Date().toLocaleString(),
-        name: topic,
-        complete: false,
-        completedAt: null,
-      };
-      const newAllTopics = [...allTopics, newTopic];
-      setLocalStorageKeyValue(ALL_TOPICS_KEY, newAllTopics);
-    }
-
-    const newEntry = {
-      id: nanoid(),
-      createdAt: new Date().toLocaleString(),
-      topic,
+  function sendSubmits() {
+    const topicId = upsertTopic({ name: topicName });
+    createPost({
+      topicId,
+      topicName,
       yesterday,
       today,
       continued,
       blockers,
-    };
-
-    const localEntries = getLocalStorageKeyValue(ALL_POSTS_KEY);
-
-    if (localEntries) {
-      setLocalStorageKeyValue(ALL_POSTS_KEY, [...localEntries, newEntry]);
-    } else {
-      setLocalStorageKeyValue(ALL_POSTS_KEY, [newEntry]);
-    }
-  };
+    });
+  }
 
   return (
     <FormControl
@@ -79,17 +51,17 @@ export default function PostForm() {
       <Text fontSize={20} fontWeight="bold" m={5}>
         Create a new post 📝
       </Text>
+
       <FormLabel mt={5} textAlign="center">
         Topic
       </FormLabel>
       <Input
         type="text"
         placeholder=". . ."
-        onChange={(e) => setTopic(e.target.value)}
+        onChange={(e) => setTopicName(e.target.value)}
         list="topics"
       />
-
-      <SelectTopic allTopics={allTopics} />
+      <SelectTopic topics={topics} />
 
       <FormLabel mt={5} textAlign="center">
         What was done yesterday?

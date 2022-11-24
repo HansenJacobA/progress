@@ -2,30 +2,30 @@ import React, { useState, useEffect } from "react";
 import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";
 import { Flex, Button, Input, Text } from "@chakra-ui/react";
-import {
-  ALL_TOPICS_KEY,
-  ALL_POSTS_KEY,
-  getLocalStorageKeyValue,
-} from "../../utilities/localStorage";
+import getValueByKey from "../../utilities/getValueByKey";
 
 export default function SearchTopic() {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [posts, setPosts] = useState([]);
-  const [allTopics, setAllTopics] = useState([]);
+  const [topics, setTopics] = useState({});
 
   useEffect(() => {
-    const localTopics = getLocalStorageKeyValue(ALL_TOPICS_KEY);
-    setAllTopics(localTopics || allTopics);
+    const savedTopics = getValueByKey("topics");
+    setTopics(savedTopics);
   }, [false]);
 
-  const getPosts = (e) => {
-    e.preventDefault();
-    if (allTopics.find(({ name }) => name === selectedTopic) !== undefined) {
-      const localPosts = getLocalStorageKeyValue(ALL_POSTS_KEY);
-      const topicPosts = localPosts.filter(
-        (post) => post.topic === selectedTopic
-      );
-      setPosts(topicPosts);
+  useEffect(() => {
+    setPosts([]);
+    getPosts();
+  }, [selectedTopic]);
+
+  const getPosts = () => {
+    const topic = topics[selectedTopic];
+    if (topic) {
+      const topicPosts = getValueByKey(topic.id);
+      if (Array.isArray(topicPosts)) {
+        setPosts(topicPosts);
+      }
     }
   };
 
@@ -34,6 +34,7 @@ export default function SearchTopic() {
       <Text fontSize={20} fontWeight="bold">
         Browse Posts by Topic 📖
       </Text>
+
       <Flex gap={5}>
         <Input
           type="text"
@@ -41,10 +42,7 @@ export default function SearchTopic() {
           list="topics"
           placeholder="Select topic"
         />
-
-        <SelectTopic allTopics={allTopics} />
-
-        <Button onClick={getPosts}>Search</Button>
+        <SelectTopic topics={topics} />
       </Flex>
 
       <Flex

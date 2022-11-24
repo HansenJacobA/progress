@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { Link, Button, Flex, Text } from "@chakra-ui/react";
-import { deleteAllPosts } from "../../utilities/localStorage";
 import Template from "../../components/template";
+import seedDown from "../../utilities/seedDown";
 
 export default function DeleteAllPosts() {
   return (
@@ -18,7 +18,7 @@ export default function DeleteAllPosts() {
             textDecoration: "none",
           }}
         >
-          <Button onClick={deleteAllPosts}>Delete All 🗑️</Button>
+          <Button onClick={seedDown}>Delete All 🗑️</Button>
         </Link>
       </NextLink>
 
