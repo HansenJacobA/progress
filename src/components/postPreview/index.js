@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
-import ViewPost from "../viewPost";
+import Post from "../post";
 
 export default function PostPreview({ post }) {
   return (
@@ -28,7 +28,7 @@ export default function PostPreview({ post }) {
           }}
           border="solid 4px #E6DDCB"
         >
-          <ViewPost post={post} />
+          <Post post={post} />
         </Flex>
       </Link>
     </NextLink>

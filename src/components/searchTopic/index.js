@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PostPreview from "../postPreview";
+import SelectTopic from "../selectTopic";
 import { Flex, Button, Input, Text } from "@chakra-ui/react";
 import {
   ALL_TOPICS_KEY,
@@ -7,7 +8,7 @@ import {
   getLocalStorageKeyValue,
 } from "../../utilities/localStorage";
 
-export default function SearchTopics() {
+export default function SearchTopic() {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [posts, setPosts] = useState([]);
   const [allTopics, setAllTopics] = useState([]);
@@ -17,7 +18,7 @@ export default function SearchTopics() {
     setAllTopics(localTopics || allTopics);
   }, [false]);
 
-  const getPosts = async (e) => {
+  const getPosts = (e) => {
     e.preventDefault();
     if (allTopics.find(({ name }) => name === selectedTopic) !== undefined) {
       const localPosts = getLocalStorageKeyValue(ALL_POSTS_KEY);
@@ -40,12 +41,8 @@ export default function SearchTopics() {
           list="topics"
           placeholder="Select topic"
         />
-        <datalist id="topics">
-          {allTopics.map(({ name, id }) => (
-            <option value={name || "No Name"} key={id} />
-          ))}
-          ;
-        </datalist>
+
+        <SelectTopic allTopics={allTopics} />
 
         <Button onClick={getPosts}>Search</Button>
       </Flex>

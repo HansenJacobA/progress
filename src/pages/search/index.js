@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import Template from "../../components/template";
-import SearchTopics from "../../components/searchTopics";
+import SearchTopic from "../../components/searchTopic";
 
 export default function Search() {
   return (
@@ -12,7 +12,7 @@ export default function Search() {
       pb={10}
     >
       <Template />
-      <SearchTopics />
+      <SearchTopic />
     </Flex>
   );
 }

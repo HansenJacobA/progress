@@ -16,8 +16,9 @@ import {
   getLocalStorageKeyValue,
   setLocalStorageKeyValue,
 } from "../../utilities/localStorage";
+import SelectTopic from "../selectTopic";
 
-export default function CreatePostForm() {
+export default function PostForm() {
   const [topic, setTopic] = useState("");
   const [yesterday, setYesterday] = useState("");
   const [today, setToday] = useState("");
@@ -88,12 +89,7 @@ export default function CreatePostForm() {
         list="topics"
       />
 
-      <datalist id="topics">
-        {allTopics.map(({ name, id }) => (
-          <option value={name || "No Name"} key={id} />
-        ))}
-        ;
-      </datalist>
+      <SelectTopic allTopics={allTopics} />
 
       <FormLabel mt={5} textAlign="center">
         What was done yesterday?

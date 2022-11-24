@@ -13,7 +13,7 @@ export default function NavBar() {
       bgColor="#E6DDCB"
       color="black"
     >
-      <NextLink href="/delete-all-posts" passHref>
+      <NextLink href="/delete" passHref>
         <Link
           textDecoration="none"
           _hover={{
@@ -23,7 +23,7 @@ export default function NavBar() {
           Delete All
         </Link>
       </NextLink>
-      <NextLink href="/create-new-post" passHref>
+      <NextLink href="/new-post" passHref>
         <Link
           textDecoration="none"
           _hover={{
@@ -33,14 +33,14 @@ export default function NavBar() {
           New Post
         </Link>
       </NextLink>
-      <NextLink href="/search-topics" passHref>
+      <NextLink href="/search" passHref>
         <Link
           textDecoration="none"
           _hover={{
             textDecoration: "underline",
           }}
         >
-          Search Posts
+          Search Topic
         </Link>
       </NextLink>
     </Flex>
