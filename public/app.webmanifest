@@ -1,9 +1,9 @@
 {
   "name": "Work Progress Tracker",
   "short_name": "Progress",
-  "start_url": "./",
+  "start_url": "/",
   "theme_color": "#E6DDCB",
-  "scope": "./",
+  "scope": "/",
   "display": "standalone",
   "icons": [
     {
@@ -23,12 +23,5 @@
       "purpose": "maskable"
     }
   ],
-  "description": "This app lets you easily record progress accomplishments",
-  "screenshots": [
-    {
-      "src": "icons/screenshot.png",
-      "sizes": "1125x1383",
-      "type": "image/png"
-    }
-  ]
+  "description": "This app lets you easily record progress accomplishments"
 }
