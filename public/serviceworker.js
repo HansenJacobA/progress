@@ -21,20 +21,27 @@ self.addEventListener("fetch", (event) => {
       .then((cachedResponse) => {
         // Even if the response is in the cache, we fetch it
         // and update the cache for future usage
-        const fetchPromise = fetch(event.request).then((networkResponse) => {
-          caches
-            .open("assets")
-            .then((cache) => {
-              cache.put(event.request, networkResponse.clone());
-              return networkResponse;
-            })
-            .catch((error) => {
-              console.log(
-                "Error saving fetch response to cache in service worker. ",
-                error
-              );
-            });
-        });
+        const fetchPromise = fetch(event.request)
+          .then((networkResponse) => {
+            caches
+              .open("assets")
+              .then((cache) => {
+                cache.put(event.request, networkResponse.clone());
+                return networkResponse;
+              })
+              .catch((error) => {
+                console.log(
+                  "Error 'put'ting fetch response into cache in service worker. ",
+                  error
+                );
+              });
+          })
+          .catch((error) => {
+            console.log(
+              "Error saving fetch response to cache in service worker. ",
+              error
+            );
+          });
         // We use the currently cached version if it's there
         return cachedResponse || fetchPromise; // cached or a network fetch
       })
