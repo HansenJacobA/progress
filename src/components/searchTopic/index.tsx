@@ -23,9 +23,7 @@ export default function SearchTopic() {
     const topic = topics[selectedTopic];
     if (topic) {
       const topicPosts = getValueByKey(topic.id);
-      if (Array.isArray(topicPosts)) {
-        setPosts(topicPosts);
-      }
+      setPosts(topicPosts);
     }
   };
 

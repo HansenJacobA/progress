@@ -29,6 +29,11 @@ export default function Template() {
           content="work tracker progress organization daily records reflection evaluations promotions"
         />
         <link rel="manifest" href="app.webmanifest" />
+
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+        />
       </Head>
       <Title />
       <NavBar />

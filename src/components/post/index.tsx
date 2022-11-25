@@ -11,10 +11,15 @@ export default function Post({ post }) {
       {postDetails.map((detail, index) => {
         const subject = subjects[index];
         return (
-          <>
+          <Flex
+            w="100%"
+            direction="column"
+            justify="center"
+            key={`${detail + subject}`}
+          >
             <Subject subject={subject} />
             <Detail detail={detail} />
-          </>
+          </Flex>
         );
       })}
     </Flex>

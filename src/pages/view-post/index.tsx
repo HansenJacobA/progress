@@ -14,11 +14,9 @@ export default function ViewPost() {
   if (topicId) {
     const posts = getValueByKey(topicId.toString());
 
-    if (Array.isArray(posts)) {
-      post = posts.find(({ id }) => {
-        return id === postId;
-      });
-    }
+    post = posts.find(({ id }) => {
+      return id === postId;
+    });
   }
 
   return (
