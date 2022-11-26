@@ -1,4 +1,4 @@
-const assets = ["/", "./", "../"];
+const assets = ["/"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
