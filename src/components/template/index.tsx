@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { Flex } from "@chakra-ui/react";
 import Title from "../title";

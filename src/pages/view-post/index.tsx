@@ -1,3 +1,4 @@
+import React from "react";
 import { useRouter } from "next/router";
 import { Flex } from "@chakra-ui/react";
 import getValueByKey from "../../utilities/getValueByKey";

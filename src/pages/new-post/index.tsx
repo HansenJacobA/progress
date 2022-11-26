@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex } from "@chakra-ui/react";
 import PostForm from "../../components/postForm";
 import Template from "../../components/template";

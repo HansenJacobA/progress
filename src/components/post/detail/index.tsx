@@ -1,3 +1,4 @@
+import React from "react";
 import { Text, Flex } from "@chakra-ui/react";
 
 export default function Detail({ detail }: { detail: string }) {

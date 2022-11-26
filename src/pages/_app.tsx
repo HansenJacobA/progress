@@ -1,3 +1,4 @@
+import React from "react";
 import Script from "next/script";
 import "../styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";

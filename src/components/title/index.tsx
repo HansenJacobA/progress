@@ -1,6 +1,6 @@
+import React from "react";
 import NextLink from "next/link";
-import { Link } from "@chakra-ui/react";
-import { Heading } from "@chakra-ui/react";
+import { Link, Heading } from "@chakra-ui/react";
 
 export default function Title() {
   return (

@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex } from "@chakra-ui/react";
 import Template from "../../components/template";
 import RemoveItems from "../../components/removeItems";
