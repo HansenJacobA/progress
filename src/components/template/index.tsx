@@ -19,7 +19,7 @@ export default function Template() {
       color="white"
     >
       <Head>
-        <html lang="en" />
+        {/* <html lang="en" /> */}
         <title>Pr☕️gress Tracker</title>
         <meta property="og:title" content="Pr☕️gress Tracker" key="title" />
         <meta
