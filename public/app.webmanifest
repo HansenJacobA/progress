@@ -3,6 +3,7 @@
   "short_name": "Progress",
   "start_url": "/",
   "theme_color": "#E6DDCB",
+  "background_color": "#E6DDCB",
   "scope": "/",
   "display": "standalone",
   "icons": [
