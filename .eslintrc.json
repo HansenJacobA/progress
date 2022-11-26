@@ -20,5 +20,6 @@
   "settings": {
     "react": {
       "version": "detect"
-    },
+    }
+  }
 }
