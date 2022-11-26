@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Post from "../post";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Flex } from "@chakra-ui/react";
 import Subject from "./subject";
 import Detail from "./detail";

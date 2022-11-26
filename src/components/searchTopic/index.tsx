@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";
 import { Flex, Input, Text } from "@chakra-ui/react";

@@ -1,4 +1,3 @@
-import React from "react";
 import Template from "../../components/template";
 import Welcome from "../../components/welcome";
 import { Flex } from "@chakra-ui/react";
