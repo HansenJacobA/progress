@@ -33,10 +33,11 @@ export default function Template() {
         <link rel="apple-touch-icon" href="/icons/icon-512.png" />
         <meta name="theme-color" content="#E6DDCB" />
 
-        <meta
+        {/* Removes auto zoom in input fields */}
+        {/* <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
-        />
+        /> */}
       </Head>
       <Title />
       <NavBar />
