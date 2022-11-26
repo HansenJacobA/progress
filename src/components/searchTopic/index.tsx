@@ -40,7 +40,7 @@ export default function SearchTopic() {
           list="topics"
           placeholder="Select topic"
         />
-        <SelectTopic topics={topics} />
+        <SelectTopic topics={Object.values(topics)} />
       </Flex>
 
       <Flex
@@ -55,7 +55,7 @@ export default function SearchTopic() {
         maxW={350}
       >
         {posts.length ? (
-          posts.map((post) => (
+          posts.map((post: Post) => (
             <PostPreview post={post} key={post.id} checkbox={false} />
           ))
         ) : (

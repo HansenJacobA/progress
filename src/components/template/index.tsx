@@ -9,6 +9,7 @@ export default function Template() {
   useEffect(() => {
     seedUp();
   }, []);
+
   return (
     <Flex
       justify="center"

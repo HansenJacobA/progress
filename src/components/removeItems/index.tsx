@@ -16,9 +16,7 @@ import SelectTopic from "../selectTopic";
 import DeletionAlert from "../deletionAlert";
 
 export default function RemoveItems() {
-  const [topics, setTopics] = useState({
-    topic: { id: "NA", name: "NA" },
-  });
+  const [topics, setTopics] = useState({});
   const [selectedTopic, setSelectedTopic] = useState("");
   const [posts, setPosts] = useState([]);
   const [allChecked, setAllChecked] = useState(false);
@@ -43,11 +41,13 @@ export default function RemoveItems() {
   }, [selectedTopic]);
 
   useEffect(() => {
-    setIsIndeterminate(checkedItems.some((check) => check) && !allChecked);
+    setIsIndeterminate(
+      checkedItems.some((check: boolean): boolean => check) && !allChecked
+    );
   }, [checkedItems, allChecked]);
 
   useEffect(() => {
-    setAllChecked(checkedItems.every((check) => check));
+    setAllChecked(checkedItems.every((check: boolean): boolean => check));
   }, [checkedItems]);
 
   const getPosts = () => {
@@ -73,7 +73,7 @@ export default function RemoveItems() {
           placeholder="Select topic"
         />
 
-        <SelectTopic topics={topics} />
+        <SelectTopic topics={Object.values(topics)} />
 
         <IconButton
           variant="outline"
@@ -130,7 +130,7 @@ export default function RemoveItems() {
         maxW={350}
       >
         {posts.length ? (
-          posts.map((post, index) => {
+          posts.map((post: Post, index) => {
             return (
               <Flex gap={3} key={post.id}>
                 <PostPreview post={post} checkbox={true} />

@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import { Flex } from "@chakra-ui/react";
 import Template from "../../components/template";
 import RemoveItems from "../../components/removeItems";

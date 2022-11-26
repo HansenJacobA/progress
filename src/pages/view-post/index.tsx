@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Flex } from "@chakra-ui/react";
 import getValueByKey from "../../utilities/getValueByKey";
@@ -14,7 +13,7 @@ export default function ViewPost() {
   if (topicId) {
     const posts = getValueByKey(topicId.toString());
 
-    post = posts.find(({ id }) => {
+    post = posts.find(({ id }: { id: string }) => {
       return id === postId;
     });
   }
