@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.3.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "framer-motion": "^7.6.1",
     "nanoid": "^4.0.0",
     "next": "12.3.1",
