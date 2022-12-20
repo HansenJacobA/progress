@@ -19,7 +19,7 @@ export default function ViewPost() {
   }
 
   return (
-    <Flex justify="center" align="center" direction="column" gap={5} mb={10}>
+    <Flex justify="center" align="center" direction="column" mb={10}>
       <Template />
       {post ? <Post post={post} /> : <>No Selected Post</>}
     </Flex>

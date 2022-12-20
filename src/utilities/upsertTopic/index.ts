@@ -3,16 +3,13 @@ import getValueByKey from "../getValueByKey";
 import setValueByKey from "../setValueByKey";
 import { Topic } from "../../types";
 
-export default function upsertTopic(data: Topic): string {
+export default function upsertTopic(data: Topic): Topic["id"] {
   const topics = getValueByKey("topics");
 
   let topic = topics[data.name];
 
   if (topic) {
-    topic = {
-      ...topic,
-      updatedAt: new Date().toLocaleString(),
-    };
+    topic.updatedAt = new Date().toLocaleString();
   } else {
     topic = {
       id: nanoid(),

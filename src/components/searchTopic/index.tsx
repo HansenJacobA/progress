@@ -29,7 +29,7 @@ export default function SearchTopic() {
   };
 
   return (
-    <Flex justify="center" align="center" direction="column" gap={10}>
+    <Flex justify="center" align="center" direction="column" gap={5}>
       <Text fontSize={20} fontWeight="light">
         Browse Posts by Topic 📖
       </Text>
@@ -56,9 +56,7 @@ export default function SearchTopic() {
         w={300}
       >
         {posts.length ? (
-          posts.map((post: Post) => (
-            <PostPreview post={post} key={post.id} checkbox={false} />
-          ))
+          posts.map((post: Post) => <PostPreview post={post} key={post.id} />)
         ) : (
           <Text>No previews for this topic</Text>
         )}

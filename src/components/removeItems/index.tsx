@@ -61,7 +61,7 @@ export default function RemoveItems() {
   };
 
   return (
-    <Flex justify="center" align="center" direction="column" gap={10}>
+    <Flex justify="center" align="center" direction="column" gap={5}>
       <Text fontSize={20} fontWeight="light">
         Remove Posts by Topic 🗑️
       </Text>
@@ -134,7 +134,7 @@ export default function RemoveItems() {
           posts.map((post: Post, index) => {
             return (
               <Flex gap={3} key={post.id}>
-                <PostPreview post={post} checkbox={true} />
+                <PostPreview post={post} />
                 <Checkbox
                   isChecked={checkedItems[index]}
                   onChange={(e) => {

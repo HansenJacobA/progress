@@ -15,6 +15,7 @@ export default function NavBar() {
       color="white"
       fontWeight="light"
       fontSize={18}
+      borderBottom="1px"
     >
       {navBarLinkNames.map(({ linkName, url }: NavBarLinkNameAndUrl) => {
         return (
