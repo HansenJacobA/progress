@@ -8,7 +8,7 @@ export default function ViewPost() {
   const router = useRouter();
   const { topicId, postId } = router.query;
 
-  let post: Post;
+  let post;
 
   if (topicId) {
     const posts = getValueByKey(topicId.toString());

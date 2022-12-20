@@ -1,3 +1,5 @@
+import { Topic } from "../../types";
+
 export default function SelectTopic({ topics }: { topics: Topic[] }) {
   return (
     <datalist id="topics">

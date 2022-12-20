@@ -3,6 +3,7 @@ import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";
 import { Flex, Input, Text } from "@chakra-ui/react";
 import getValueByKey from "../../utilities/getValueByKey";
+import { Post } from "../../types";
 
 export default function SearchTopic() {
   const [selectedTopic, setSelectedTopic] = useState("");

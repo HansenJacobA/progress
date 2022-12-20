@@ -14,6 +14,7 @@ import removeSelected from "../../utilities/removeSelected";
 import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";
 import DeletionAlert from "../deletionAlert";
+import { Post } from "../../types";
 
 export default function RemoveItems() {
   const [topics, setTopics] = useState({});

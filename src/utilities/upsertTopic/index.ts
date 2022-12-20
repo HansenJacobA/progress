@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import getValueByKey from "../getValueByKey";
 import setValueByKey from "../setValueByKey";
+import { Topic } from "../../types";
 
 export default function upsertTopic(data: Topic): string {
   const topics = getValueByKey("topics");

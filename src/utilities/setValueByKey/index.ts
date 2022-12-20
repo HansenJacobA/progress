@@ -1,3 +1,5 @@
+import { Topic, Post } from "../../types";
+
 export default function setValueByKey(
   key: string,
   value: Topic | Post[] | Record<string, never>

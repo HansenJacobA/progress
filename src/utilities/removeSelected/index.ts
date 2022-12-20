@@ -1,3 +1,4 @@
+import { Post } from "../../types";
 import getValueByKey from "../getValueByKey";
 import setValueByKey from "../setValueByKey";
 

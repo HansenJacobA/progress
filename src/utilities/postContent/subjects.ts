@@ -1,4 +1,4 @@
-const subjects = [
+const subjects: string[] = [
   "Topic",
   "Created",
   "Prior Work",

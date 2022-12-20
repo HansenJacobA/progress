@@ -2,13 +2,7 @@ import { Link, Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Post from "../post";
 
-export default function PostPreview({
-  post,
-  checkbox,
-}: {
-  post: Post;
-  checkbox: boolean;
-}) {
+export default function PostPreview({ post, checkbox }) {
   return (
     <NextLink
       href={{

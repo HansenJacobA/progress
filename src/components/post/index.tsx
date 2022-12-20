@@ -4,7 +4,7 @@ import Detail from "./detail";
 import { subjects } from "../../utilities/postContent";
 import { details } from "../../utilities/postContent";
 
-export default function Post({ post }: { post: Post }) {
+export default function Post({ post }) {
   const postDetails = details(post);
   return (
     <Flex w="100%" direction="column" justify="center">

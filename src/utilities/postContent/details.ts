@@ -1,3 +1,5 @@
+import { Post } from "../../types";
+
 export default function details(post: Post): string[] {
   return [
     post.topicName,
