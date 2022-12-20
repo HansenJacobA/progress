@@ -6,12 +6,13 @@ export default function NavBar() {
     <Flex
       w="100vw"
       align="center"
-      fontSize={16}
       justify="center"
       gap={10}
       p={3}
-      bgColor="#E6DDCB"
-      color="black"
+      bgColor="#4c5667"
+      color="white"
+      fontWeight="light"
+      fontSize={18}
     >
       <NextLink href="/delete" passHref>
         <Link
