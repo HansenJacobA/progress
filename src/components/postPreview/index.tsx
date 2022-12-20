@@ -32,9 +32,9 @@ export default function PostPreview({
           height={150}
           w={checkbox ? 300 : 350}
           _hover={{
-            border: "solid 4px #819FA6",
+            border: "solid 4px white",
           }}
-          border="solid 4px #E6DDCB"
+          border="solid 4px #4c5667"
         >
           <Post post={post} />
         </Flex>

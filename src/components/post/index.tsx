@@ -7,7 +7,7 @@ import { details } from "../../utilities/postContent";
 export default function Post({ post }: { post: Post }) {
   const postDetails = details(post);
   return (
-    <Flex w="100%" direction="column" justify="center" mb={10}>
+    <Flex w="100%" direction="column" justify="center">
       {postDetails.map((detail, index) => {
         const subject = subjects[index];
         return (

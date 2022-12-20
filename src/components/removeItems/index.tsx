@@ -60,8 +60,8 @@ export default function RemoveItems() {
   };
 
   return (
-    <Flex justify="center" align="center" direction="column" gap={10} mt={10}>
-      <Text fontSize={20} fontWeight="bold">
+    <Flex justify="center" align="center" direction="column" gap={10}>
+      <Text fontSize={20} fontWeight="light">
         Remove Posts by Topic 🗑️
       </Text>
 

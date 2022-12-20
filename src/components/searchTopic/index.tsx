@@ -28,8 +28,8 @@ export default function SearchTopic() {
   };
 
   return (
-    <Flex justify="center" align="center" direction="column" gap={10} mt={10}>
-      <Text fontSize={20} fontWeight="bold">
+    <Flex justify="center" align="center" direction="column" gap={10}>
+      <Text fontSize={20} fontWeight="light">
         Browse Posts by Topic 📖
       </Text>
 
@@ -52,7 +52,7 @@ export default function SearchTopic() {
         align="center"
         pl={15}
         pr={15}
-        maxW={350}
+        w={300}
       >
         {posts.length ? (
           posts.map((post: Post) => (

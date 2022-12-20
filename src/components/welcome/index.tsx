@@ -1,18 +1,16 @@
 import NextLink from "next/link";
-import { Link, Button, Flex, Text } from "@chakra-ui/react";
+import { Link, Button, Flex } from "@chakra-ui/react";
 
 export default function Welcome() {
   return (
-    <Flex justify="center" align="center" direction="column" gap={10} m={100}>
-      <Text fontSize={32}>Welcome</Text>
-
+    <Flex justify="center" align="center" direction="column" gap={5}>
       <NextLink href="/search" passHref>
         <Link
           _hover={{
             textDecoration: "none",
           }}
         >
-          <Button>Search Posts</Button>
+          <Button fontWeight="normal">Search Posts</Button>
         </Link>
       </NextLink>
 
@@ -22,7 +20,7 @@ export default function Welcome() {
             textDecoration: "none",
           }}
         >
-          <Button>New Post 📝</Button>
+          <Button fontWeight="normal">New Post 📝</Button>
         </Link>
       </NextLink>
     </Flex>

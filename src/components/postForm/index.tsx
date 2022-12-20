@@ -55,11 +55,9 @@ export default function PostForm() {
       alignContent="center"
       justifyContent="center"
       textAlign="center"
-      p={5}
-      width="100%"
-      maxW={450}
+      w={300}
     >
-      <Text fontSize={20} fontWeight="bold" m={5}>
+      <Text fontSize={20} fontWeight="light">
         Create a new post 📝
       </Text>
 
@@ -120,7 +118,7 @@ export default function PostForm() {
             textDecoration: "none",
           }}
         >
-          <Button m={5} onClick={sendSubmits}>
+          <Button m={5} onClick={sendSubmits} fontWeight="normal">
             Submit
           </Button>
         </Link>
