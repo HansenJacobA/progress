@@ -1,7 +1,7 @@
 {
-  "name": "tworker",
+  "name": "progress",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -31,5 +31,27 @@
     "eslint-plugin-react": "^7.31.11",
     "typescript": "^4.9.3"
   },
-  "type": "module"
+  "type": "module",
+  "description": "To use this application and download on desktop or Android, [open](https://tworker-hansenjacoba.vercel.app/home) in Google chrome and download / add to homepage.",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HansenJacobA/progress.git"
+  },
+  "keywords": [
+    "work",
+    "progress",
+    "tracker",
+    "productivity",
+    "career",
+    "review",
+    "performance",
+    "review"
+  ],
+  "author": "Jacob Hansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HansenJacobA/progress/issues"
+  },
+  "homepage": "https://github.com/HansenJacobA/progress#readme"
 }

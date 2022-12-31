@@ -27,7 +27,7 @@ export default function Template() {
         />
         <meta
           name="keywords"
-          content="work tracker progress organization daily records reflection evaluations promotions"
+          content="work tracker progress organization daily records reflection evaluations promotions job career professional occupation"
         />
         <link rel="manifest" href="app.webmanifest" />
         <link rel="apple-touch-icon" href="/icons/icon-512.png" />
