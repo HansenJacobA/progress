@@ -76,6 +76,7 @@ export default function PostForm() {
         What was done yesterday?
       </FormLabel>
       <Textarea
+        id="yesterday"
         onChange={(e) => setYesterday(e.target.value)}
         placeholder=". . ."
         size="sm"
@@ -86,6 +87,7 @@ export default function PostForm() {
         What was done today?
       </FormLabel>
       <Textarea
+        id="today"
         onChange={(e) => setToday(e.target.value)}
         placeholder=". . ."
         size="sm"
@@ -96,6 +98,7 @@ export default function PostForm() {
         What needs continued work?
       </FormLabel>
       <Textarea
+        id="continued"
         onChange={(e) => setContinued(e.target.value)}
         placeholder=". . ."
         size="sm"
@@ -106,6 +109,7 @@ export default function PostForm() {
         Any blockers?
       </FormLabel>
       <Textarea
+        id="blockers"
         onChange={(e) => setBlockers(e.target.value)}
         placeholder=". . ."
         size="sm"
