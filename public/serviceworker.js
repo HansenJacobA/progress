@@ -11,15 +11,6 @@
   const cacheName = `static::${version}`;
   let isOnline = true;
 
-  // assets.push(
-  //   "/",
-  //   "/offline",
-  //   "/favicon.ico",
-  //   "/app.webmanifest",
-  //   "/service-worker.js",
-  //   "/sw-register.js"
-  // );
-
   main().catch(console.error);
 
   async function main() {

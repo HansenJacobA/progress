@@ -1,6 +1,11 @@
 import { promises as fs } from "fs";
 import path from "path";
 
+/**
+ * Recursively traverse the public directory and return a list of all files.
+ * Used by the the service worker to precache all assets.
+ */
+
 async function traverseDirectory(dir, basePath = "") {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const filePaths = await Promise.all(

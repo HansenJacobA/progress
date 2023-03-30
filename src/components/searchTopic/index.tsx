@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";

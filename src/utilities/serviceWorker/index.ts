@@ -1,7 +1,4 @@
-// Ensure that application is fully functional before incorporating service worker,
-// otherwise service worker may serve up stale assets.
-
-(async function initiateServiceWorkerFromClient() {
+export async function initiateServiceWorkerFromClient() {
   const isOnline = "onLine" in navigator ? navigator.onLine : true;
   const usingSW = "serviceWorker" in navigator;
   let swRegistration;
@@ -59,4 +56,4 @@
   }
 
   await registerServiceWorker();
-})();
+}
