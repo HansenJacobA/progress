@@ -10,12 +10,11 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
-import getValueByKey from "../../utilities/getValueByKey";
-import removeSelected from "../../utilities/removeSelected";
 import PostPreview from "../postPreview";
 import SelectTopic from "../selectTopic";
 import DeletionAlert from "../deletionAlert";
 import { Post } from "../../types";
+import { getValueByKey, removeSelected } from "../../utilities";
 
 export default function RemoveItems() {
   const [topics, setTopics] = useState({});

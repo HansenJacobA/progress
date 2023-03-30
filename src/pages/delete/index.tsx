@@ -1,6 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import Template from "../../components/template";
-import RemoveItems from "../../components/removeItems";
+import { Template, RemoveItems } from "../../components";
 
 export default function Delete() {
   return (

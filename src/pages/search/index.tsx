@@ -1,6 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import Template from "../../components/template";
-import SearchTopic from "../../components/searchTopic";
+import { Template, SearchTopic } from "../../components";
 
 export default function Search() {
   return (

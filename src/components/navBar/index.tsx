@@ -1,7 +1,7 @@
 import { Flex, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { NavBarLinkNameAndUrl } from "../../types";
-import { navBarLinkNames } from "../../utilities/navBar";
+import { navBarLinkNames } from "../../utilities";
 
 export default function NavBar() {
   return (

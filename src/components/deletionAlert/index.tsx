@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { MutableRefObject } from "react";
-import seedDown from "../../utilities/seedDown";
+import { seedDown } from "../../utilities";
 
 export default function DeletionAlert({
   isOpen,

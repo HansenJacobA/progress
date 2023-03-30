@@ -1,8 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import Subject from "./subject";
 import Detail from "./detail";
-import { subjects } from "../../utilities/postContent";
-import { details } from "../../utilities/postContent";
+import { details, subjects } from "../../utilities";
 
 export default function Post({ post }) {
   const postDetails = details(post);

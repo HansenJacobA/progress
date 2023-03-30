@@ -10,10 +10,8 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import getValueByKey from "../../utilities/getValueByKey";
-import upsertTopic from "../../utilities/upsertTopic";
-import createPost from "../../utilities/createPost";
 import SelectTopic from "../selectTopic";
+import { getValueByKey, upsertTopic, createPost } from "../../utilities";
 
 export default function PostForm() {
   const [topicName, setTopicName] = useState("");

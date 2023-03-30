@@ -1,5 +1,5 @@
-import Template from "../../components/template";
 import { Flex, Text } from "@chakra-ui/react";
+import { Template } from "../../components";
 
 export default function PrivatePolicy() {
   return (

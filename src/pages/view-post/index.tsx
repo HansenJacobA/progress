@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import { Flex } from "@chakra-ui/react";
-import getValueByKey from "../../utilities/getValueByKey";
-import Post from "../../components/post";
-import Template from "../../components/template";
+import { Template, Post } from "../../components";
+import { getValueByKey } from "../../utilities";
 
 export default function ViewPost() {
   const router = useRouter();

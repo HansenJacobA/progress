@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Flex } from "@chakra-ui/react";
 import Title from "../title";
 import NavBar from "../navBar";
-import seedUp from "../../utilities/seedUp";
+import { seedUp } from "../../utilities";
 
 export default function Template() {
   useEffect(() => {

@@ -1,6 +1,5 @@
-import Template from "../../components/template";
 import { Flex } from "@chakra-ui/react";
-import PostForm from "../../components/postForm";
+import { Template, PostForm } from "../../components";
 
 export default function Home() {
   return (
