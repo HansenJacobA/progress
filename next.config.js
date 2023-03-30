@@ -20,8 +20,8 @@ const nextConfig = {
 };
 
 export default withPlugins([
-  withBundleAnalyzer(nextConfig)({
+  withBundleAnalyzer({
     enabled: process.env.ANALYZE === "true",
     openAnalyzer: false,
-  }),
+  })(nextConfig),
 ]);
