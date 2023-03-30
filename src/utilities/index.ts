@@ -7,3 +7,4 @@ export { default as details } from "./postContent/details";
 export { default as subjects } from "./postContent/subjects";
 export { default as removeSelected } from "./removeSelected";
 export { default as seedUp } from "./seedUp";
+export { default as initiateServiceWorkerFromClient } from "./serviceWorker";

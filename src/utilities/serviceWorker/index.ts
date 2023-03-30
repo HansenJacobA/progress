@@ -1,4 +1,4 @@
-export async function initiateServiceWorkerFromClient() {
+export default async function initiateServiceWorkerFromClient() {
   const isOnline = "onLine" in navigator ? navigator.onLine : true;
   const usingSW = "serviceWorker" in navigator;
   let swRegistration;
