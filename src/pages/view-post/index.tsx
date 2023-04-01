@@ -1,7 +1,10 @@
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Flex } from "@chakra-ui/react";
-import { Template, Post } from "../../components";
+import { Template } from "../../components";
 import { getValueByKey } from "../../utilities";
+
+const Post = dynamic(() => import("../../components/post"));
 
 export default function ViewPost() {
   const router = useRouter();

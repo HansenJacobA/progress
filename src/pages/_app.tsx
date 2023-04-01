@@ -7,9 +7,7 @@ import { initiateServiceWorkerFromClient } from "../utilities";
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    // Ensure that application is fully functional before incorporating service worker,
-    // otherwise service worker may serve up stale assets.
-    (async () => await initiateServiceWorkerFromClient())();
+    initiateServiceWorkerFromClient();
   }, []);
 
   return (

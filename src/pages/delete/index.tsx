@@ -1,5 +1,8 @@
+import dynamic from "next/dynamic";
 import { Flex } from "@chakra-ui/react";
-import { Template, RemoveItems } from "../../components";
+import { Template } from "../../components";
+
+const RemoveItems = dynamic(() => import("../../components/removeItems"));
 
 export default function Delete() {
   return (
