@@ -14,14 +14,10 @@ const nextConfig = {
       },
     ];
   },
-  webpack(config) {
-    return config;
-  },
 };
 
 export default withPlugins([
   withBundleAnalyzer({
     enabled: process.env.ANALYZE === "true",
-    openAnalyzer: false,
   })(nextConfig),
 ]);
