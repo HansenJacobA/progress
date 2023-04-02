@@ -4,17 +4,45 @@
   self.addEventListener("message", onMessage);
   self.addEventListener("fetch", onFetch);
 
-  const version = 2;
+  // TODO: Implement stale while evaluate strategy
+  // TODO: Implement version controlling by checking the version first, to see if we need to update the cache
+  // TODO: Find what the unused JS in the _app file is
+  // TODO: Make each page in this application score 100 on Lighthouse
+  // TODO: Practice creating a service worker from scratch for demo purposes
+  // TODO: Add expirations to the cache, in particular to article pages
+
+  const versionResponse = await fetch("/version.json");
+  const { version } = await versionResponse.json();
   const cacheName = `static::${version}`;
   let isOnline = true;
+  const assets = [
+    "/",
+    "/offline",
+    "/favicon.ico",
+    "/app.webmanifest",
+    "/icons/icon-512.png",
+    "/icons/icon-1024.png",
+    "/icons/maskable_icon.png",
+  ];
 
   main().catch(console.error);
 
   async function main() {
     await sendMessage({ requestStatusUpdate: true });
-    const response = await fetch("/api/assets");
-    const { assets } = await response.json();
+    await clearCaches();
     await cacheAssets(assets);
+  }
+
+  async function sendMessage(msg) {
+    // eslint-disable-next-line no-undef
+    const allClients = await clients.matchAll({ includeUncontrolled: true });
+    return Promise.all(
+      allClients.map(function clientMessage(client) {
+        const channel = new MessageChannel();
+        channel.port1.onmessage = onMessage;
+        return client.postMessage(msg, [channel.port2]);
+      })
+    );
   }
 
   async function onFetch(event) {
@@ -104,18 +132,6 @@
     });
   }
 
-  async function sendMessage(msg) {
-    // eslint-disable-next-line no-undef
-    const allClients = await clients.matchAll({ includeUncontrolled: true });
-    return Promise.all(
-      allClients.map(function clientMessage(client) {
-        const channel = new MessageChannel();
-        channel.port1.onmessage = onMessage;
-        return client.postMessage(msg, [channel.port2]);
-      })
-    );
-  }
-
   function onMessage(event) {
     const { data } = event;
     if (data.statusUpdate) {
@@ -135,8 +151,6 @@
 
   async function handleActivation() {
     await clearCaches();
-    const response = await fetch("/api/assets");
-    const { assets } = await response.json();
     await cacheAssets(assets, /*forceReload=*/ true);
     // eslint-disable-next-line no-undef
     await clients.claim();
