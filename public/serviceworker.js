@@ -29,7 +29,7 @@
 
   async function main() {
     await sendMessage({ requestStatusUpdate: true });
-    await clearCaches();
+    // await clearCaches();
     await cacheAssets(assets);
   }
 
