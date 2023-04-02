@@ -26,7 +26,6 @@
 
   async function main() {
     await sendMessage({ requestStatusUpdate: true });
-    await clearCaches();
     await cacheAssets(assets);
   }
 
@@ -35,6 +34,7 @@
   }
 
   async function router(request) {
+    await clearCaches();
     const version = await getVersion();
     const cacheName = `static::${version}`;
     const url = new URL(request.url);
