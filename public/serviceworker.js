@@ -31,13 +31,54 @@
     if (await shouldForceReload(cacheName)) {
       await clearCaches();
     }
-    await cacheAssets(assets, /*forceReload=*/ true);
+    await cacheAssets(assets);
   }
 
   async function shouldForceReload(cacheName) {
     const cacheNames = await caches.keys();
     const currentCache = cacheNames.find((name) => name === cacheName);
     return !currentCache;
+  }
+
+  async function onMessage(event) {
+    const { data } = event;
+    if (data.statusUpdate) {
+      isOnline = data.statusUpdate.isOnline;
+      const version = await getVersion();
+      console.log(`Service worker v${version} is online: ${isOnline}`);
+    }
+  }
+
+  async function onInstall() {
+    const version = await getVersion();
+    console.log(`Service worker v${version} is installing...`);
+    self.skipWaiting();
+  }
+
+  async function onActivate(event) {
+    event.waitUntil(handleActivation());
+  }
+
+  async function handleActivation() {
+    const version = await getVersion();
+    const cacheName = `static::${version}`;
+    const isNewVersion = await shouldForceReload(cacheName);
+    if (isNewVersion) {
+      await clearCaches();
+      await cacheAssets(assets, /*forceReload=*/ true);
+      sendMessageToClients({ type: "NEW_VERSION_DETECTED" });
+    }
+    // eslint-disable-next-line no-undef
+    await clients.claim();
+    console.log(`Service worker v${version} is activated...`);
+  }
+
+  async function sendMessageToClients(msg) {
+    // eslint-disable-next-line no-undef
+    const allClients = await clients.matchAll({ includeUncontrolled: true });
+    allClients.forEach((client) => {
+      client.postMessage(msg);
+    });
   }
 
   async function onFetch(event) {
@@ -47,10 +88,6 @@
   async function router(request) {
     const version = await getVersion();
     const cacheName = `static::${version}`;
-    if (await shouldForceReload(cacheName)) {
-      await clearCaches();
-      await cacheAssets(assets, /*forceReload=*/ true);
-    }
     const url = new URL(request.url);
     const { pathname } = url;
     const cache = await caches.open(cacheName);
@@ -88,7 +125,7 @@
               if (request.status !== 404) {
                 await cache.put(url, response.clone());
               }
-              return response;
+              return response.clone();
             }
           } catch (e) {
             console.log(`Error fetching asset: ${url}`);
@@ -112,7 +149,7 @@
               );
               if (response && response.ok) {
                 await cache.put(url, response.clone());
-                return response;
+                return response.clone();
               }
             } catch (e) {
               console.log(`Error fetching asset: ${url}`);
@@ -143,34 +180,6 @@
         return client.postMessage(msg, [channel.port2]);
       })
     );
-  }
-
-  async function onMessage(event) {
-    const { data } = event;
-    if (data.statusUpdate) {
-      isOnline = data.statusUpdate.isOnline;
-      const version = await getVersion();
-      console.log(`Service worker v${version} is online: ${isOnline}`);
-    }
-  }
-
-  async function onInstall() {
-    const version = await getVersion();
-    console.log(`Service worker v${version} is installing...`);
-    self.skipWaiting();
-  }
-
-  async function onActivate(event) {
-    event.waitUntil(handleActivation());
-  }
-
-  async function handleActivation() {
-    await clearCaches();
-    await cacheAssets(assets, /*forceReload=*/ true);
-    // eslint-disable-next-line no-undef
-    await clients.claim();
-    const version = await getVersion();
-    console.log(`Service worker v${version} is activated...`);
   }
 
   async function clearCaches() {
