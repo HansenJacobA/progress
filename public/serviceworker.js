@@ -31,7 +31,7 @@
     if (await shouldForceReload(cacheName)) {
       await clearCaches();
     }
-    await cacheAssets(assets);
+    await cacheAssets(assets, /*forceReload=*/ true);
   }
 
   async function shouldForceReload(cacheName) {
@@ -49,7 +49,7 @@
     const cacheName = `static::${version}`;
     if (await shouldForceReload(cacheName)) {
       await clearCaches();
-      await cacheAssets(assets);
+      await cacheAssets(assets, /*forceReload=*/ true);
     }
     const url = new URL(request.url);
     const { pathname } = url;
