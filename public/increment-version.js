@@ -2,7 +2,7 @@ import fs from "fs-extra";
 
 (async () => {
   try {
-    const versionFilePath = "./public/app-version.json";
+    const versionFilePath = "./public/version.json";
     const versionData = await fs.readJson(versionFilePath);
     versionData.version += 1;
     await fs.writeJson(versionFilePath, versionData, { spaces: 2 });
