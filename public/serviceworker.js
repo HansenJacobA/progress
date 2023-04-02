@@ -26,7 +26,18 @@
 
   async function main() {
     await sendMessage({ requestStatusUpdate: true });
+    const version = await getVersion();
+    const cacheName = `static::${version}`;
+    if (await shouldForceReload(cacheName)) {
+      await clearCaches();
+    }
     await cacheAssets(assets);
+  }
+
+  async function shouldForceReload(cacheName) {
+    const cacheNames = await caches.keys();
+    const currentCache = cacheNames.find((name) => name === cacheName);
+    return !currentCache;
   }
 
   async function onFetch(event) {
@@ -34,9 +45,12 @@
   }
 
   async function router(request) {
-    await clearCaches();
     const version = await getVersion();
     const cacheName = `static::${version}`;
+    if (await shouldForceReload(cacheName)) {
+      await clearCaches();
+      await cacheAssets(assets);
+    }
     const url = new URL(request.url);
     const { pathname } = url;
     const cache = await caches.open(cacheName);
