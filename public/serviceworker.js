@@ -1,10 +1,16 @@
 (async function initializeServiceWorker() {
   // TODO: Implement stale while evaluate strategy
   // TODO: Implement version controlling by checking the version first, to see if we need to update the cache
-  // TODO: Find what the unused JS in the _app file is
+  // TODO: Find what the unused JS in the \_app file is
   // TODO: Make each page in this application score 100 on Lighthouse
   // TODO: Practice creating a service worker from scratch for demo purposes
   // TODO: Add expirations to the cache, in particular to article pages
+
+  // Functions that listen to the browser events
+  self.addEventListener("install", onInstall);
+  self.addEventListener("activate", onActivate);
+  self.addEventListener("message", onMessage);
+  self.addEventListener("fetch", onFetch);
 
   let isOnline = true;
   const assets = [
@@ -17,68 +23,11 @@
     "/icons/maskable_icon.png",
   ];
 
-  self.addEventListener("install", onInstall);
-  self.addEventListener("activate", onActivate);
-  self.addEventListener("message", onMessage);
-  self.addEventListener("fetch", onFetch);
-
   main().catch(console.error);
 
   async function main() {
     await sendMessage({ requestStatusUpdate: true });
-    const version = await getVersion();
-    const cacheName = `static::${version}`;
-    if (await shouldForceReload(cacheName)) {
-      await clearCaches();
-    }
-    await cacheAssets(assets);
-  }
-
-  async function shouldForceReload(cacheName) {
-    const cacheNames = await caches.keys();
-    const currentCache = cacheNames.find((name) => name === cacheName);
-    return !currentCache;
-  }
-
-  async function onMessage(event) {
-    const { data } = event;
-    if (data.statusUpdate) {
-      isOnline = data.statusUpdate.isOnline;
-      const version = await getVersion();
-      console.log(`Service worker v${version} is online: ${isOnline}`);
-    }
-  }
-
-  async function onInstall() {
-    const version = await getVersion();
-    console.log(`Service worker v${version} is installing...`);
-    self.skipWaiting();
-  }
-
-  async function onActivate(event) {
-    event.waitUntil(handleActivation());
-  }
-
-  async function handleActivation() {
-    const version = await getVersion();
-    const cacheName = `static::${version}`;
-    const isNewVersion = await shouldForceReload(cacheName);
-    if (isNewVersion) {
-      await clearCaches();
-      await cacheAssets(assets, /*forceReload=*/ true);
-      sendMessageToClients({ type: "NEW_VERSION_DETECTED" });
-    }
-    // eslint-disable-next-line no-undef
-    await clients.claim();
-    console.log(`Service worker v${version} is activated...`);
-  }
-
-  async function sendMessageToClients(msg) {
-    // eslint-disable-next-line no-undef
-    const allClients = await clients.matchAll({ includeUncontrolled: true });
-    allClients.forEach((client) => {
-      client.postMessage(msg);
-    });
+    await cacheAssets();
   }
 
   async function onFetch(event) {
@@ -86,11 +35,9 @@
   }
 
   async function router(request) {
-    const version = await getVersion();
-    const cacheName = `static::${version}`;
     const url = new URL(request.url);
     const { pathname } = url;
-    const cache = await caches.open(cacheName);
+    const cache = await caches.open("assets");
     const fetchOptions = {
       method: request.method,
       headers: request.headers,
@@ -106,7 +53,7 @@
               if (request.method === "GET") {
                 await cache.put(url, response.clone());
               }
-              return response;
+              return response.clone();
             }
           } catch (e) {
             console.log(`Error fetching asset: ${url}`);
@@ -137,6 +84,7 @@
         }
         return cache.match("/offline");
       } else {
+        // This is for CSS assets, images, etc. we want to check cache first
         const cachedResponse = await cache.match(url);
         if (cachedResponse) {
           return cachedResponse.clone();
@@ -159,7 +107,7 @@
         }
       }
     } else {
-      // If the request is not for the current origin, then figure out CORS requests
+      // If the request is not for the current origin, then figure out CORS requests or pass request through
     }
   }
 
@@ -182,35 +130,40 @@
     );
   }
 
-  async function clearCaches() {
-    const version = await getVersion();
-    const cacheNames = await caches.keys();
-    const oldCacheNames = cacheNames.filter(function matchOldCache(cacheName) {
-      if (cacheName.startsWith("static::")) {
-        let [, cacheVersion] = cacheName.split("::");
-        cacheVersion =
-          cacheVersion != null ? Number(cacheVersion) : cacheVersion;
-        return cacheVersion > 0 && cacheVersion != version;
-      }
-    });
-    return Promise.all(
-      oldCacheNames.map(function deleteCache(cacheName) {
-        return caches.delete(cacheName);
-      })
-    );
+  function onMessage(event) {
+    const { data } = event;
+    if (data.statusUpdate) {
+      isOnline = data.statusUpdate.isOnline;
+      console.log(`Service worker is online: ${isOnline}`);
+    }
   }
 
-  async function cacheAssets(assets, forceReload = false) {
-    const version = await getVersion();
-    const cacheName = `static::${version}`;
-    const cache = await caches.open(cacheName);
+  async function onInstall() {
+    console.log(`Service worker is installing...`);
+    self.skipWaiting();
+  }
+
+  async function onActivate(event) {
+    event.waitUntil(handleActivation());
+  }
+
+  async function handleActivation() {
+    await caches.delete("assets");
+    await cacheAssets(/*forceReload=*/ true);
+    // eslint-disable-next-line no-undef
+    await clients.claim();
+    console.log(`Service worker is activated...`);
+  }
+
+  async function cacheAssets(forceReload = false) {
+    const cache = await caches.open("assets");
     return Promise.all(
       assets.map(async function cacheFile(asset) {
         try {
           if (!forceReload) {
             const cachedResponse = await cache.match(asset);
             if (cachedResponse) {
-              return cachedResponse;
+              return cachedResponse.clone();
             }
           }
           const fetchOptions = {
@@ -222,17 +175,11 @@
           if (response.ok) {
             await cache.put(asset, response.clone());
           }
-          return response;
+          return response.clone();
         } catch (e) {
           console.log(`Error caching asset: ${asset}`);
         }
       })
     );
-  }
-
-  async function getVersion() {
-    const versionResponse = await fetch("/version.json");
-    const { version } = await versionResponse.json();
-    return version;
   }
 })().catch(console.error);

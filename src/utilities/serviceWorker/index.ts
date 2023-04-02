@@ -39,10 +39,6 @@ export default async function initiateServiceWorkerFromClient() {
       console.log("Recieved request for status update from SW");
       sendStatusUpdate(event.ports && event.ports[0]);
     }
-    if (data.type === "NEW_VERSION_DETECTED") {
-      console.log("New version detected, refreshing the page...");
-      window.location.reload();
-    }
   }
 
   function sendStatusUpdate(target) {
