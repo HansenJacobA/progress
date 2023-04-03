@@ -7,12 +7,9 @@ export default async function initiateServiceWorkerFromClient() {
   async function registerServiceWorker() {
     if (usingSW) {
       try {
-        swRegistration = await navigator.serviceWorker.register(
-          "/serviceworker.js",
-          {
-            updateViaCache: "none",
-          }
-        );
+        swRegistration = await navigator.serviceWorker.register("/sw.js", {
+          updateViaCache: "none",
+        });
 
         svcWorker =
           swRegistration.installing ||

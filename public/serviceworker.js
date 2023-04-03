@@ -38,13 +38,14 @@
     const url = new URL(request.url);
     const { pathname } = url;
     const cache = await caches.open("assets");
-    const fetchOptions = {
-      method: request.method,
-      headers: request.headers,
-      cache: "no-cache",
-      credentials: "same-origin",
-    };
     if (url.origin === location.origin) {
+      const fetchOptions = {
+        method: request.method,
+        headers: request.headers,
+        cache: "no-cache",
+        credentials: "same-origin",
+        redirect: "follow",
+      };
       if (pathname.startsWith("/api/")) {
         if (isOnline) {
           try {
@@ -85,6 +86,13 @@
         return cache.match("/offline");
       } else {
         // This is for CSS assets, images, etc. we want to check cache first
+        const fetchOptions = {
+          method: request.method,
+          headers: request.headers,
+          cache: "cache-first",
+          credentials: "same-origin",
+          redirect: "follow",
+        };
         const cachedResponse = await cache.match(url);
         if (cachedResponse) {
           return cachedResponse.clone();
