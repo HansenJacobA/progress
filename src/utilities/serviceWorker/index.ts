@@ -30,7 +30,7 @@ export default async function initiateServiceWorkerFromClient() {
     }
   }
 
-  function onSWMessage(event) {
+  function onSWMessage(event: MessageEvent) {
     const { data } = event;
     if (data.requestStatusUpdate) {
       console.log("Recieved request for status update from SW");
@@ -38,11 +38,11 @@ export default async function initiateServiceWorkerFromClient() {
     }
   }
 
-  function sendStatusUpdate(target) {
+  function sendStatusUpdate(target: MessagePort) {
     sendSWMessage({ statusUpdate: { isOnline } }, target);
   }
 
-  function sendSWMessage(msg, target) {
+  function sendSWMessage(msg: object, target: MessagePort) {
     if (target) {
       target.postMessage(msg);
     } else if (svcWorker) {
