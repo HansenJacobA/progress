@@ -2,7 +2,7 @@ export default async function initiateServiceWorkerFromClient() {
   const isOnline = "onLine" in navigator ? navigator.onLine : true;
   const usingSW = "serviceWorker" in navigator;
   let swRegistration;
-  let svcWorker;
+  let svcWorker: ServiceWorker | MessagePort | null;
 
   async function registerServiceWorker() {
     if (usingSW) {
@@ -38,17 +38,20 @@ export default async function initiateServiceWorkerFromClient() {
     }
   }
 
-  function sendStatusUpdate(target: MessagePort) {
+  function sendStatusUpdate(target: ServiceWorker | MessagePort | null) {
     sendSWMessage({ statusUpdate: { isOnline } }, target);
   }
 
-  function sendSWMessage(msg: object, target: MessagePort) {
+  function sendSWMessage(
+    msg: object,
+    target: ServiceWorker | MessagePort | null
+  ) {
     if (target) {
       target.postMessage(msg);
     } else if (svcWorker) {
       svcWorker.postMessage(msg);
     } else {
-      navigator.serviceWorker.controller.postMessage(msg);
+      navigator?.serviceWorker?.controller?.postMessage(msg);
     }
   }
 

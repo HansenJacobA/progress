@@ -3,13 +3,12 @@ import "../styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { theme } from "../styles/theme";
 import { useEffect } from "react";
+import { initiateServiceWorkerFromClient } from "../utilities";
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window !== "undefined") {
-      import("../utilities").then((module) =>
-        module.initiateServiceWorkerFromClient()
-      );
+      initiateServiceWorkerFromClient();
     }
   }, []);
 
