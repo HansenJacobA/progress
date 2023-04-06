@@ -1,8 +1,5 @@
-import dynamic from "next/dynamic";
 import { Flex } from "@chakra-ui/react";
-import { Template } from "../../components";
-
-const SearchTopic = dynamic(() => import("../../components/searchTopic"));
+import { SearchTopic, Template } from "../../components";
 
 export default function Search() {
   return (
